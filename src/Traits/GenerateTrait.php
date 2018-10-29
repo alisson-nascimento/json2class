@@ -41,9 +41,16 @@ trait GenerateTrait {
             fwrite($file, self::PULA_LINHA);
             fwrite($file, self::TAB . '}');
             fwrite($file, self::PULA_LINHA_DUPLO);
+            
+            preg_match('/^[A-Z]/', $attr, $output_array);
+            
+            $attr_class = null;
+            if(count($output_array) > 0){
+                $attr_class = $attr . ' ';
+            }
 
             fwrite($file, self::TAB . "public function set" . $inflector->camelize($attr)
-                    . "(\$" . $attr . "){");
+                    . "($attr_class\$" . $attr . "){");
             fwrite($file, self::PULA_LINHA);
             fwrite($file, self::TAB_DUPLO . "\$this->" . $attr . " = \$" . $attr . self::PONTO_VIRGULA);
             fwrite($file, self::PULA_LINHA);
