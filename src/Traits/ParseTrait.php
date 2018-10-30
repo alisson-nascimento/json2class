@@ -30,7 +30,7 @@ trait ParseTrait {
         
         if (is_null($object))
         {
-            $object = $this->json;
+            $object = $this->_json_data_object;
         }
         
         

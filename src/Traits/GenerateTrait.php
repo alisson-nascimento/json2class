@@ -134,7 +134,7 @@ trait GenerateTrait {
 
     public function generateClasses() {
 
-        $config = $this->setConfig($this->json, $this->projeto);
+        $config = $this->setConfig($this->_json_data_object, $this->projeto);
 
         if (!file_exists($this->outputFolder)) 
         {
