@@ -52,10 +52,20 @@ trait ParseTrait {
                     }
 
                     $classAtualCamelizeCollection = $namespace ."\\" . $keyCamelize . 'Collection';
-
-                    $collection_obj = new $classAtualCamelizeCollection($collection);
-                    $metodo = 'set'. $keyCamelize . 'Collection';
-                    call_user_func_array([$obj, $metodo], [$collection_obj]);
+                    
+                    if(class_exists($classAtualCamelizeCollection)){
+                        $collection_obj = new $classAtualCamelizeCollection($collection);
+                        $metodo = 'set'. $keyCamelize . 'Collection';
+                        call_user_func_array([$obj, $metodo], [$collection_obj]);
+                    }else{
+                        $metodo = 'set'. $keyCamelize;
+                        if(method_exists($obj, $metodo)){
+                            call_user_func_array([$obj, $metodo], [$value]);
+                        } else {
+                            $obj->{$key} = $value;
+                        }
+                    }
+                                        
                 }else{
                     $metodo = 'set'. $keyCamelize;
                     if(method_exists($obj, $metodo)){
