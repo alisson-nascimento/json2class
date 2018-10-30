@@ -13,6 +13,12 @@
 		"text": "faça um clone do prd11"
 	},
 	"output": {
+                "generic": [
+                    {
+                        "response_type": "text",
+                        "text": "Olá, Qual é sua matrícula?"
+                    }
+                ],
 		"text": ["E para qual ambiente?"],
 		"nodes_visited": ["node_1_1538748931295", "handler_4_1538748971890", "node_2_1538748971868", "node_1_1538748931295", "node_3_1538415830749", "handler_7_1538415830749", "handler_10_1538492208900", "handler_21_1538416538852", "slot_19_1538416538852"],
 		"log_messages": []

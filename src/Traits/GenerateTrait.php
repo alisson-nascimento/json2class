@@ -6,6 +6,68 @@ use ICanBoogie\Inflector;
 trait GenerateTrait {
     
     use Json2ClassTrait;
+    
+    private function __isClassAttr($attr){
+        preg_match('/^[A-Z]/', $attr, $output_array);        
+        return count($output_array) > 0;
+    }
+    
+    private function __writeGetMethod($file, $attr){
+        $inflector = \ICanBoogie\Inflector::get();        
+                   
+        fwrite($file, self::TAB . '/**' . self::PULA_LINHA);
+        fwrite($file, self::TAB . ' * Get a ' . $attr . self::PULA_LINHA);
+        fwrite($file, self::TAB . ' *' . self::PULA_LINHA);
+        if($this->__isClassAttr($attr))
+        { 
+            fwrite($file, self::TAB . ' * @return \\' . $this->namespace . '\\' . $attr . self::PULA_LINHA);
+        }else{
+            fwrite($file, self::TAB . ' * @return mixed' . self::PULA_LINHA);
+        }
+        
+        fwrite($file, self::TAB . ' */' . self::PULA_LINHA);        
+                
+        fwrite($file, self::TAB . "public function get" . $inflector->camelize($attr)
+                    . "(){");
+        fwrite($file, self::PULA_LINHA);
+        fwrite($file, self::TAB_DUPLO . "return \$this->" . $attr . self::PONTO_VIRGULA);
+        fwrite($file, self::PULA_LINHA);
+        fwrite($file, self::TAB . '}');
+        fwrite($file, self::PULA_LINHA_DUPLO);
+    } 
+    
+    private function __writeSetMethod($file, $attr){
+        
+        $inflector = \ICanBoogie\Inflector::get();
+        
+        fwrite($file, self::TAB . '/**' . self::PULA_LINHA);
+        
+        if($this->__isClassAttr($attr))
+        { 
+            fwrite($file, self::TAB . ' * Set a ' . $attr . ' Object'. self::PULA_LINHA);
+            fwrite($file, self::TAB . ' * @param \\' . $this->namespace . '\\' .  $attr . ' $' . $attr . self::PULA_LINHA);
+        }else{
+            fwrite($file, self::TAB . ' * Set ' . $attr . self::PULA_LINHA); 
+            fwrite($file, self::TAB . ' * @param mixed $' . $attr . self::PULA_LINHA);
+        }
+        fwrite($file, self::TAB . ' * @return $this' . self::PULA_LINHA);
+        fwrite($file, self::TAB . ' */' . self::PULA_LINHA); 
+        
+        $attr_class = null;
+        if($this->__isClassAttr($attr)){
+            $attr_class = $attr . ' ';
+        }
+
+        fwrite($file, self::TAB . "public function set" . $inflector->camelize($attr)
+                . "($attr_class\$" . $attr . "){");
+        fwrite($file, self::PULA_LINHA);
+        fwrite($file, self::TAB_DUPLO . "\$this->" . $attr . " = \$" . $attr . self::PONTO_VIRGULA);
+        fwrite($file, self::PULA_LINHA);
+        fwrite($file, self::TAB_DUPLO . "return \$this" . self::PONTO_VIRGULA);
+        fwrite($file, self::PULA_LINHA);
+        fwrite($file, self::TAB . '}');
+        fwrite($file, self::PULA_LINHA_DUPLO);
+    } 
 
     private function __createClassWrite($class, $attrs) {
 
@@ -34,30 +96,10 @@ trait GenerateTrait {
         }
         fwrite($file, self::PULA_LINHA);
         foreach ($attrs as $attr) {
-            fwrite($file, self::TAB . "public function get" . $inflector->camelize($attr)
-                    . "(){");
-            fwrite($file, self::PULA_LINHA);
-            fwrite($file, self::TAB_DUPLO . "return \$this->" . $attr . self::PONTO_VIRGULA);
-            fwrite($file, self::PULA_LINHA);
-            fwrite($file, self::TAB . '}');
-            fwrite($file, self::PULA_LINHA_DUPLO);
             
-            preg_match('/^[A-Z]/', $attr, $output_array);
+            $this->__writeGetMethod($file, $attr);
             
-            $attr_class = null;
-            if(count($output_array) > 0){
-                $attr_class = $attr . ' ';
-            }
-
-            fwrite($file, self::TAB . "public function set" . $inflector->camelize($attr)
-                    . "($attr_class\$" . $attr . "){");
-            fwrite($file, self::PULA_LINHA);
-            fwrite($file, self::TAB_DUPLO . "\$this->" . $attr . " = \$" . $attr . self::PONTO_VIRGULA);
-            fwrite($file, self::PULA_LINHA);
-            fwrite($file, self::TAB_DUPLO . "return \$this" . self::PONTO_VIRGULA);
-            fwrite($file, self::PULA_LINHA);
-            fwrite($file, self::TAB . '}');
-            fwrite($file, self::PULA_LINHA_DUPLO);
+            $this->__writeSetMethod($file, $attr);
         }
         fwrite($file, self::PULA_LINHA);
         fwrite($file, "}");
