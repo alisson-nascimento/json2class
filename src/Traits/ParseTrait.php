@@ -47,13 +47,16 @@ trait ParseTrait {
                         && (is_object($value[0]))
                     )
                 {
-                    foreach($value as $c => $d){
-                        $collection[] = $this->setConfigValores($d, $key, $namespace);
-                    }
+//                    foreach($value as $c => $d){
+//                        $collection[] = $this->setConfigValores($d, $key, $namespace);
+//                    }
 
                     $classAtualCamelizeCollection = $namespace ."\\" . $keyCamelize . 'Collection';
                     
                     if(class_exists($classAtualCamelizeCollection)){
+                        foreach($value as $c => $d){
+                            $collection[] = $this->setConfigValores($d, $key, $namespace);
+                        }
                         $collection_obj = new $classAtualCamelizeCollection($collection);
                         $metodo = 'set'. $keyCamelize . 'Collection';
                         call_user_func_array([$obj, $metodo], [$collection_obj]);
