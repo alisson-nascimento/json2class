@@ -1,0 +1,89 @@
+{
+  "results" : [ {
+    "word_alternatives" : [ {
+      "start_time" : 0.03,
+      "alternatives" : [ {
+        "confidence" : 0.9588,
+        "word" : "the"
+      } ],
+      "end_time" : 0.09
+    }, {
+      "start_time" : 0.09,
+      "alternatives" : [ {
+        "confidence" : 0.9587,
+        "word" : "latest"
+      } ],
+      "end_time" : 0.62
+    }, {
+      "start_time" : 0.62,
+      "alternatives" : [ {
+        "confidence" : 0.9586,
+        "word" : "weather"
+      } ],
+      "end_time" : 0.87
+    }, {
+      "start_time" : 4.7,
+      "alternatives" : [ {
+        "confidence" : 0.9818,
+        "word" : "tornadoes"
+      } ],
+      "end_time" : 5.52
+    }, {
+      "start_time" : 5.62,
+      "alternatives" : [ {
+        "confidence" : 0.9894,
+        "word" : "is"
+      } ],
+      "end_time" : 5.8
+    }, {
+      "start_time" : 5.8,
+      "alternatives" : [ {
+        "confidence" : 0.9928,
+        "word" : "approaching"
+      } ],
+      "end_time" : 6.26
+    }, {
+      "start_time" : 6.26,
+      "alternatives" : [ {
+        "confidence" : 0.9839,
+        "word" : "Colorado"
+      } ],
+      "end_time" : 6.83
+    }, {
+      "start_time" : 6.83,
+      "alternatives" : [ {
+        "confidence" : 0.9839,
+        "word" : "on"
+      } ],
+      "end_time" : 6.99
+    }, {
+      "start_time" : 6.99,
+      "alternatives" : [ {
+        "confidence" : 0.9759,
+        "word" : "Sunday"
+      } ],
+      "end_time" : 7.72
+    } ],
+    "keywords_result" : {
+      "colorado" : [ {
+        "normalized_text" : "Colorado",
+        "start_time" : 6.26,
+        "confidence" : 0.984,
+        "end_time" : 6.83
+      } ],
+      "tornadoes" : [ {
+        "normalized_text" : "tornadoes",
+        "start_time" : 4.7,
+        "confidence" : 0.982,
+        "end_time" : 5.52
+      } ]
+    },
+    "alternatives" : [ {
+      "timestamps" : [ [ "the", 0.03, 0.09 ], [ "latest", 0.09, 0.62 ], [ "weather", 0.62, 0.87 ], [ "tornadoes", 4.7, 5.52 ], [ "is", 5.62, 5.8 ], [ "approaching", 5.8, 6.26 ], [ "Colorado", 6.26, 6.83 ], [ "on", 6.83, 6.99 ], [ "Sunday", 6.99, 7.72 ] ],
+      "confidence" : 0.97,
+      "transcript" : "the latest weather report a line of severe thunderstorms with several possible tornadoes is approaching Colorado on Sunday "
+    } ],
+    "final" : true
+  } ],
+  "result_index" : 0
+}
