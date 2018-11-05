@@ -1,10 +1,10 @@
 <?php
 
-namespace Phacil\Json2Class;
+namespace AlissonNascimento\Json2Class;
 
 class Json2Class {
     
-    use \Phacil\Json2Class\Traits\GenerateTrait;
+    use \AlissonNascimento\Json2Class\Traits\GenerateTrait;
     
     const PONTO_VIRGULA = ";";
     const PULA_LINHA = "\n";

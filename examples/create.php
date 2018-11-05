@@ -2,7 +2,7 @@
 
 require_once '../vendor/autoload.php';
 
-use Phacil\Json2Class\Json2Class;
+use AlissonNascimento\Json2Class\Json2Class;
 
 $json2Class = (new Json2Class())->setNamespace("Gonube\WatsonSdk\WatsonAssistant\Response\Message")
         ->setOutputFolder("../src/Response")

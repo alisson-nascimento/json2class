@@ -1,8 +1,8 @@
 {	
-    "name": "phacil/json2class",	
-    "description": "Phacil PHP Framework JSON parse to Classes",	
+    "name": "alisson-nascimento/json2class",
+    "description": "JSON parse to Classes",	
     "license": "MIT",	
-    "keywords": ["php", "framework", "phacil", "json2class"],	
+    "keywords": ["php", "alisson-nascimento", "json2class"],
     "authors": [	
         {	
             "name": "Alisson Nascimento",	
@@ -12,11 +12,11 @@
     "require": {	
         "php": ">=5.4",	
         "icanboogie/inflector": "^1.4",	
-        "phacil/common": "1.2.*"	
+        "phacil/common": "1.2.*"
     },	
     "autoload": {	
         "psr-4": {	
-            "Phacil\\Json2Class\\": "src/"	
+            "AlissonNascimento\\Json2Class\\": "src/"	
         }	
     }	
 }

@@ -2,7 +2,7 @@
 
 require_once '../vendor/autoload.php';
 
-$response = new Phacil\Json2Class\Response\AssitantResponse();
+$response = new AlissonNascimento\Json2Class\Response\Message\MessageResponse();
 $response->setJsonFromFile('../files/data2.json');
 $response->parse();
 

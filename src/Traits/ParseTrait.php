@@ -1,6 +1,6 @@
 <?php
 
-namespace Phacil\Json2Class\Traits;
+namespace AlissonNascimento\Json2Class\Traits;
 
 trait ParseTrait {
     

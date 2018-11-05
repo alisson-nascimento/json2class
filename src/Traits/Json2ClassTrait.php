@@ -1,14 +1,13 @@
 <?php
 
-namespace Phacil\Json2Class\Traits;
+namespace AlissonNascimento\Json2Class\Traits;
 
 trait Json2ClassTrait {
 
     private $_json_data_object;
     
     public function __construct($_json_data_object = []) 
-    {
-        
+    {        
         $data = $_json_data_object;
         
         if (is_array($_json_data_object)){

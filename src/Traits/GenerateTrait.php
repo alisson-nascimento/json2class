@@ -1,6 +1,6 @@
 <?php
 
-namespace Phacil\Json2Class\Traits;
+namespace AlissonNascimento\Json2Class\Traits;
 use ICanBoogie\Inflector;
 
 trait GenerateTrait {
@@ -87,7 +87,7 @@ trait GenerateTrait {
         fwrite($file, "class " . $inflector->camelize($class) . '{');
         fwrite($file, self::PULA_LINHA_DUPLO);
         if ($class == $this->projeto) {
-            fwrite($file, self::TAB . "use \Phacil\Json2Class\Traits\ParseTrait" . self::PONTO_VIRGULA);
+            fwrite($file, self::TAB . "use \AlissonNascimento\Json2Class\Traits\ParseTrait" . self::PONTO_VIRGULA);
             fwrite($file, self::PULA_LINHA_DUPLO);
         }
         foreach ($attrs as $attr) {
